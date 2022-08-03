@@ -1,0 +1,17 @@
+<div class="container mt-5 w-50">
+    <form>
+        <div class="mb-3">
+            <label class="form-label">User Name</label>
+            <input type="text" name="name" [(ngModel)]="name"  class="form-control" id="exampleFormControlInput1" placeholder="abc">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">User Address</label>
+            <textarea name="address" [(ngModel)]="address" class="form-control" rows="2"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input name="mobileNo" type="number" [(ngModel)]="mobileNo" class="form-control">
+          </div>
+          <button (click)="addData()" class="btn btn-dark"  style="align-items: center;">Submit Data</button>
+    </form>
+</div>

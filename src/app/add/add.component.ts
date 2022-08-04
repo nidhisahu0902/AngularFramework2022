@@ -49,11 +49,13 @@ export class AddComponent implements OnInit {
   }
   onChanges(id:any,uName:any,mail:any)
   {
+    console.log(this.users[id].Name,this.users[id].Mail)
+    this.Name = uName.value;
+    this.Mail =mail.value;
     console.log(id,uName.value,mail.value)
-    this.users[id].pop({
-        Name:uName.value,
-        Mail:mail.value
-    });
+    console.log(this.Name,this.Mail)
+    this.users[id]={Name:uName.value,Mail:mail.value}
+    
     this.isShow=false;
   }
 }

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div *ngIf="!isShow"  class="container mt-5">
     <div class="row">
        
         <div class="col-md-3">
@@ -32,7 +32,7 @@
                             <button class="btn btn-danger"  (click)="onDeleteUser(i)">Delete</button>
                         </td>
                         <td >
-                            <button  class="btn btn-warning">Edit</button>
+                            <button  (click)="onEditUser(i,user)" class="btn btn-warning">Edit</button>
                         </td>
                     </tr>
                 </thead>
@@ -40,4 +40,18 @@
            
         </div>
     </div>
+</div>
+<div *ngIf="isShow" class="container">
+     
+    <div class="col-md-3">
+        <br><br>
+        <input type="text" name="" [(ngModel)]="Name" class="form-control" #uname placeholder="User Name">
+        <br>
+        <div class="col">
+        <input type="email" name="" [(ngModel)]="Mail" class="form-control" #mail placeholder="Email-Address">
+            <br>
+            <button class="btn btn-success" (click)="onChanges(id,uname,mail)">Save Changes </button>
+            <button class="btn btn-success" (click)="onCancel()"  >Cancel</button>
+
+        </div>  
 </div>

@@ -1,17 +1,43 @@
-<div class="container mt-5 w-50">
-    <form>
-        <div class="mb-3">
-            <label class="form-label">User Name</label>
-            <input type="text" name="name" [(ngModel)]="name"  class="form-control" id="exampleFormControlInput1" placeholder="abc">
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">User Address</label>
-            <textarea name="address" [(ngModel)]="address" class="form-control" rows="2"></textarea>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Mobile Number</label>
-            <input name="mobileNo" type="number" [(ngModel)]="mobileNo" class="form-control">
-          </div>
-          <button (click)="addData()" class="btn btn-dark"  style="align-items: center;">Submit Data</button>
-    </form>
+<div class="container mt-5">
+    <div class="row">
+       
+        <div class="col-md-3">
+            <br><br>
+            <input type="text" name="" class="form-control" #uname placeholder="User Name">
+            <br>
+            <div class="col">
+            <input type="email" name="" class="form-control" #mail placeholder="Email-Address">
+                <br>
+                <button class="btn btn-success" (click)="onCreateUser(uname,mail)" >Create User </button>
+            </div>               
+
+        </div>
+        <hr class="mt-3">
+        <div class="col mt-3">
+            
+                <thead class="thead-dark">
+                    <tr>
+                        <td>Sr. No</td>
+                        <td>UserName</td>
+                        <td>User Email</td>
+                        <td>
+                          Actions
+                        </td>
+                    </tr >
+                    <tr *ngFor="let user of users; index as i ;">
+                        <td>{{i+1}}</td>
+                        <td>{{user.Name}}</td>
+                        <td>{{user.Mail}}</td>
+                        <td >
+                            <button class="btn btn-danger"  (click)="onDeleteUser(i)">Delete</button>
+                        </td>
+                        <td >
+                            <button  class="btn btn-warning">Edit</button>
+                        </td>
+                    </tr>
+                </thead>
+
+           
+        </div>
+    </div>
 </div>

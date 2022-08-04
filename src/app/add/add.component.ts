@@ -7,27 +7,26 @@ import { CrudService } from '../service/crud.service';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-  name:string="";
-  address:string="";
-  mobileNo:number=0;
-  constructor(public crudService:CrudService) { }
 
+  constructor(public crudService:CrudService) { }
+  users:any=[];
   ngOnInit(): void {
   }
-  // addData(formdata:FormData)
-  // {
-  //   console.log(formdata)
-  //   let newUser = {name:this.name,address:this.address,mobileNo:this.mobileNo}
-  //  // this.crudService.Add(newUser)
 
-  //   this.name=""
-  //   this.address=""
-  //   this.mobileNo=""
-  // }
-  addData()
+  onCreateUser(uName:any,mail:any)
   {
-      let newUser = {Name:this.name,Address:this.address,MobilNo:this.mobileNo}
-      console.log(newUser)   
-      //this.crudService.Add(newUser)   
+      console.log(uName.value,mail.value)
+      let userName = uName.value;
+      let Email = mail.value;
+      this.users.push({
+        Name:userName,
+        Mail : Email
+      });
+    
+  }
+  onDeleteUser(item:any)
+  {
+    console.log(item)
+    this.users.splice(item,1)
   }
 }

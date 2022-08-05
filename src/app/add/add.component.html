@@ -1,57 +1,122 @@
-<div *ngIf="!isShow"  class="container mt-5">
-    <div class="row">
-       
-        <div class="col-md-3">
-            <br><br>
-            <input type="text" name="" class="form-control" #uname placeholder="User Name">
-            <br>
-            <div class="col">
-            <input type="email" name="" class="form-control" #mail placeholder="Email-Address">
-                <br>
-                <button class="btn btn-success" (click)="onCreateUser(uname,mail)" >Create User </button>
-            </div>               
-
-        </div>
-        <hr class="mt-3">
-        <div class="col mt-3">
-            
-                <thead class="thead-dark">
-                    <tr>
-                        <td>Sr. No</td>
-                        <td>UserName</td>
-                        <td>User Email</td>
-                        <td>
-                          Actions
-                        </td>
-                    </tr >
-                    <tr *ngFor="let user of users; index as i ;">
-                        <td>{{i+1}}</td>
-                        <td>{{user.Name}}</td>
-                        <td>{{user.Mail}}</td>
-                        <td >
-                            <button class="btn btn-danger"  (click)="onDeleteUser(i)">Delete</button>
-                        </td>
-                        <td >
-                            <button  (click)="onEditUser(i,user)" class="btn btn-warning">Edit</button>
-                        </td>
-                    </tr>
-                </thead>
-
-           
-        </div>
+<!---------navbar------------------->
+<nav class="navbar navbar-expand-lg text-white" style="background-color: rgb(96,77,159);">
+    <div class="container-fluid">
+  
+      <img src="/assets/images/profile-nav.png" class="img-fluid ml-4" style="width:50px;" alt="CRUD">
+      <a class="navbar-brand text-white" style="margin-left: 20px;" >CRUD</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </div>
     </div>
+  </nav>
+
+  <div class="container mt-5">
+   
+    <img  data-toggle="modal" data-target="#exampleModal" src="/assets/images/add-button.png" class="img-fluid" style="width: 50px; float: right; margin-top: -20px; box-shadow: 1.5px 0px rgb(183,152,211); border-radius: 50%;" alt="Add User">
+  </div>
+ <br>
+ <br>
+ <br>
+ <div *ngIf="!isShow" class="container  ml-4 mr-4">
+    <table class="w-100">
+        <thead class="border" style="color: gray;">
+          <th>ID</th> 
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </thead>
+        <tbody style="color: rgba(82, 72, 72, 0.712);">
+          <tr *ngFor="let user of users; index as i ;">
+            <td>{{i+1}}</td>
+            <td>{{user.Name}}</td>
+            <td>{{user.Mail}}</td>
+            <td>
+              <i (click)="onEditUser(i,user)"  class='bx bxs-edit-alt' ></i>
+            
+              <i (click)="onDeleteUser(i)" class='bx bxs-trash-alt' style="margin-left: 20px;"></i>
+
+            </td>
+            <hr style="width: 1100px; position: fixed;">
+          </tr>
+      
+        </tbody>
+    </table>
+ </div>
+ <!-----------model for add----------------->
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+       
+         <button type="button" class="close" style="float: right!important;" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form>
+            <div class="from-group">
+                <input type="text" name=""  class="form-control" #uname placeholder="User Name">
+            </div>
+           <div class="form-group">
+        
+            <input type="email" name="" class="mt-5 form-control" #mail placeholder="Email-Address">
+           </div>
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Close</button>
+         <button type="button"  style="background-color: rgb(96,77,159);" (click)="onCreateUser(uname,mail)" class="btn text-white">Submit</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!--------------------model for edit------------>
+ 
+ <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      
+        <button type="button" class="close" style="float: right!important;" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+           <div class="from-group">
+               <input type="text" name=""  class="form-control" #uname placeholder="User Name">
+           </div>
+          <div class="form-group">
+       
+           <input type="email" name="" class="mt-5 form-control" #mail placeholder="Email-Address">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" style="background-color: rgb(96,77,159);" (click)="onCreateUser(uname,mail)" class="btn">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div *ngIf="isShow" class="container">
      
-    <div class="col-md-3">
-        <br><br>
-        <input type="text" name="" [(ngModel)]="Name" class="form-control" #uname placeholder="User Name">
+<div class="container text-center" style="padding-left: 200px; padding-right: 200px;">
+  <div style="align-items: center;">
+    <br><br>
+    <input type="text" name="" [(ngModel)]="Name" class="form-control" #uname placeholder="User Name">
+    <br>
+    <div class="col">
+    <input type="email" name="" [(ngModel)]="Mail" class="form-control" #mail placeholder="Email-Address">
         <br>
-        <div class="col">
-        <input type="email" name="" [(ngModel)]="Mail" class="form-control" #mail placeholder="Email-Address">
-            <br>
-            <button class="btn btn-success" (click)="onChanges(id,uname,mail)">Save Changes </button>
-            <button class="btn btn-success" (click)="onCancel()"  >Cancel</button>
+        <button class="btn text-white" style="background-color: rgb(131, 113, 190);" (click)="onChanges(id,uname,mail)">Save Changes </button>
+        <button class="btn text-white" style="background-color: gray;" (click)="onCancel()"  >Cancel</button>
 
-        </div>  
+    </div>  
 </div>
+</div>
+
+ 

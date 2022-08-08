@@ -26,7 +26,8 @@ export class AddComponent implements OnInit {
         Name:userName,
         Mail : Email
       });
-    
+      uName.value="";
+      mail.value="";
   }
   onDeleteUser(item:any)
   {

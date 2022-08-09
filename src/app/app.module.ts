@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
+import { TestingComponent } from './testing/testing.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EditComponent } from './edit/edit.component';
     AppComponent,
     HomeComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,

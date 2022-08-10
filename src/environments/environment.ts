@@ -4,15 +4,13 @@
 
 export const environment = {
   firebase: {
-    projectId: 'formdriven-a060d',
-    appId: '1:838622352869:web:730b9001750a86ad7a8b0c',
-    databaseURL: 'https://formdriven-a060d.firebaseio.com',
-    storageBucket: 'formdriven-a060d.appspot.com',
-    locationId: 'us-central',
-    apiKey: 'AIzaSyB2bxkXoEc5qMbFGrtGkzZ121LgDdlcVe0',
-    authDomain: 'formdriven-a060d.firebaseapp.com',
-    messagingSenderId: '838622352869',
-    measurementId: 'G-HG7TKGR6WT',
+    projectId: 'dynamicwebsite2022',
+    appId: '1:12663090717:web:fe51cb78788709f56ce0f4',
+    storageBucket: 'dynamicwebsite2022.appspot.com',
+    apiKey: 'AIzaSyBhDdLzF9ZLgJMBoC5s_6AzJk7jN-YBCNw',
+    authDomain: 'dynamicwebsite2022.firebaseapp.com',
+    messagingSenderId: '12663090717',
+    measurementId: 'G-1S54GZYG2N',
   },
   production: false
 };

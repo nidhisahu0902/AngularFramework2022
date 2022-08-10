@@ -1,1 +1,16 @@
-{}
+{
+  "hosting": {
+    "public": "dist/my-crud-application",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

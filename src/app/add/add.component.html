@@ -32,8 +32,8 @@
             <td>{{user.Name}}</td>
             <td>{{user.Mail}}</td>
             <td>
-                <i (click)="onEditUser(i,user)"  class='bx bxs-edit-alt' ></i>
-                <i (click)="onDeleteUser(i)" class='bx bxs-trash-alt' style="margin-left: 20px;"></i>
+                <i routerLink="edit/{{user.id}}" class='bx bxs-edit-alt' ></i>
+                <i (click)="onDeleteUser(user.id)" class='bx bxs-trash-alt' style="margin-left: 20px;"></i>
 
             </td>
             
@@ -66,7 +66,7 @@
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-secondary text-white" data-dismiss="modal">Close</button>
-         <button type="button"  style="background-color: rgb(96,77,159);" (click)="onCreateUser(uname,mail)" class="btn text-white">Submit</button>
+         <button type="button"   style="background-color: rgb(96,77,159);" (click)="onCreateUser(uname,mail)" class="btn text-white">Submit</button>
        </div>
      </div>
    </div>
@@ -74,19 +74,19 @@
  <div *ngIf="isShow" class="container">
  
 <!-------------------for editing form---------->
-<div class="container text-center" >
+<!-- <div class="container text-center" >
   <div style="align-items: center;">
     <br><br>
-    <input type="text" name="" [(ngModel)]="Name" class="form-control" #uname placeholder="User Name">
+    <input type="text" name="" [(ngModel)]="users.Name" class="form-control" #uname placeholder="User Name">
     <br>
     <div class="col">
-    <input type="email" name="" [(ngModel)]="Mail" class="form-control" #mail placeholder="Email-Address">
+    <input type="email" name="" [(ngModel)]="users.Mail" class="form-control" #mail placeholder="Email-Address">
         <br>
-        <button class="btn text-white" style="background-color: rgb(131, 113, 190);" (click)="onChanges(id,uname,mail)">Save Changes </button>
+        <button class="btn text-white" style="background-color: rgb(131, 113, 190);" (click)="onChanges(users.id,uname,mail)">Save Changes </button>
         <button class="btn text-white" style="background-color: gray; margin-left: 20px;" (click)="onCancel()"  >Cancel</button>
 
   </div>  
 </div>
-</div>
+</div> -->
 
  

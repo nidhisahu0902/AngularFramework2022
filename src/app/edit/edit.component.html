@@ -1,1 +1,13 @@
-<p>edit works!</p>
+<div class="container text-center" >
+    <div style="align-items: center;">
+      <br><br>
+      <input type="text" name="" [(ngModel)]="user.Name" class="form-control" #uname placeholder="User Name">
+      <br>
+      <div class="col">
+      <input type="email" name="" [(ngModel)]="user.Mail" class="form-control" #mail placeholder="Email-Address">
+          <br>
+          <button class="btn text-white" style="background-color: rgb(131, 113, 190);"  (click)="edit()" >Save Changes </button>
+          <button class="btn text-white" style="background-color: gray; margin-left: 20px;" routerLink=""  >Cancel</button>
+  
+    </div>  
+  </div>
